@@ -14,5 +14,5 @@ app.get('/', (req, res) => {
 })
 
 app.listen(3000, () => {
-  console.log('Good morning! ☕️')
+  console.log('Hello and good morning! ☕️')
 })
