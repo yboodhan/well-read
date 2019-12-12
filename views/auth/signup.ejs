@@ -1,1 +1,41 @@
-signup.ejs
+<h1>Signup</h1>
+
+<div class="row">
+  <form method="POST" action="/auth/signup" class="col s12">
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="firstname" type="text" class="validate" name="firstname">
+        <label for="firstname">First Name</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="lastname" type="text" class="validate" name="lastname">
+        <label for="lastname">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="email" type="email" class="validate" name="email">
+        <label for="email">Email</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input id="profile" type="url" class="validate" name="profile">
+        <label for="profile">Profile Pic</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input id="password" type="password" class="validate" name="password">
+        <label for="password">Password</label>
+      </div>
+      <div class="input-field col s6">
+        <input id="password_verify" type="password" class="validate" name="password_verify">
+        <label for="password_verify">Password Verify</label>
+      </div>
+    </div>
+    <button class="btn waves-effect waves-light teal lighten-3" type="submit" name="action">Sign Up
+      <i class="material-icons right">send</i>
+    </button>
+  </form>
+</div>
