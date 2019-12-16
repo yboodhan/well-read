@@ -4,31 +4,31 @@
   <form method="POST" action="/auth/signup" class="col s12">
     <div class="row">
       <div class="input-field col s6">
-        <input id="firstname" type="text" class="validate" name="firstname">
+        <input id="firstname" type="text" class="validate" name="firstname" value="<%= data.firstname %>">
         <label for="firstname">First Name</label>
       </div>
       <div class="input-field col s6">
-        <input id="lastname" type="text" class="validate" name="lastname">
+        <input id="lastname" type="text" class="validate" name="lastname" value="<%= data.lastname %>">
         <label for="lastname">Last Name</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s4">
-        <input id="email" type="email" class="validate" name="email">
+        <input id="email" type="email" class="validate" name="email" value="<%= data.email %>">
         <label for="email">Email</label>
       </div>
       <div class="input-field col s4">
-        <input id="username" type="text" class="validate" name="username">
+        <input id="username" type="text" class="validate" name="username" value="<%= data.username %>">
         <label for="username">Display Name</label>
       </div>
       <div class="input-field col s4">
-        <input id="birthdate" type="text" class="datepicker validate" name="birthdate">
+        <input id="birthdate" type="text" class="datepicker validate" name="birthdate" value="<%= data.birthdate %>">
         <label for="birthdate">Birth Date</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="photoUrl" type="url" class="validate" name="photoUrl">
+        <input id="photoUrl" type="url" class="validate" name="photoUrl" value="<%= data.photoUrl %>">
         <label for="photoUrl">Profile Pic</label>
       </div>
     </div>
@@ -44,11 +44,11 @@
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <textarea id="bio" class="validate materialize-textarea" name="bio"></textarea>
+        <textarea id="bio" class="validate materialize-textarea" name="bio"><%= data.bio %></textarea>
         <label for="bio">User Bio</label>
       </div>
     </div>
-    <button class="btn waves-effect waves-light teal lighten-3" type="submit" name="action">Sign Up
+    <button class="btn waves-effect waves-light teal lighten-3" type="submit">Sign Up
       <i class="material-icons right">send</i>
     </button>
   </form>
