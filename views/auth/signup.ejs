@@ -13,15 +13,23 @@
       </div>
     </div>
     <div class="row">
-      <div class="input-field col s12">
+      <div class="input-field col s4">
         <input id="email" type="email" class="validate" name="email">
         <label for="email">Email</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="username" type="text" class="validate" name="username">
+        <label for="username">Display Name</label>
+      </div>
+      <div class="input-field col s4">
+        <input id="birthdate" type="text" class="datepicker validate" name="birthdate">
+        <label for="birthdate">Birth Date</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="profile" type="url" class="validate" name="profile">
-        <label for="profile">Profile Pic</label>
+        <input id="photoUrl" type="url" class="validate" name="photoUrl">
+        <label for="photoUrl">Profile Pic</label>
       </div>
     </div>
     <div class="row">
@@ -34,8 +42,29 @@
         <label for="password_verify">Password Verify</label>
       </div>
     </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea id="bio" class="validate materialize-textarea" name="bio"></textarea>
+        <label for="bio">User Bio</label>
+      </div>
+    </div>
     <button class="btn waves-effect waves-light teal lighten-3" type="submit" name="action">Sign Up
       <i class="material-icons right">send</i>
     </button>
   </form>
 </div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let elems = document.querySelectorAll('.datepicker')
+    let startDate = new Date()
+    startDate.setFullYear(startDate.getFullYear() - 30)
+
+    let instances = M.Datepicker.init(elems, {
+      autoClose: true,
+      defaultDate: startDate,
+      minYear: startDate.getFullYear() - 70,
+      maxYear: (new Date()).getFullYear()
+    })
+  })
+</script>
