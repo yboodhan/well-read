@@ -6,8 +6,10 @@ module.exports = (sequelize, DataTypes) => {
   const user = sequelize.define('user', {
     firstname: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notNull: {
+        len: {
+          args: [1, 255],
           msg: 'Come on, we know you have a firstname.'
         }
       }
