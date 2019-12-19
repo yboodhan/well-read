@@ -4,20 +4,26 @@ let router = require('express').Router()
 // Include a reference to the models for db access
 let db = require('../models')
 
+// Reference to the passport module
+let passport = require('../config/passportConfig')
+
 // Define routes
 router.get('/login', (req, res) => {
   res.render('auth/login')
 })
 
-router.post('/login', (req, res) => {
-  res.send(req.body)
-})
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/profile',
+  successFlash: 'Yay, we logged in!',
+  failureRedirect: '/auth/login',
+  failureFlash: 'Invalid Credentials :('
+}))
 
 router.get('/signup', (req, res) => {
   res.render('auth/signup', { data: {} })
 })
 
-router.post('/signup', (req, res) => {
+router.post('/signup', (req, res, next) => {
   if (req.body.password !== req.body.password_verify) {
     // User's password verification doesn't match - probably a typo
     req.flash('error', 'Passwords do not match!')
@@ -33,8 +39,12 @@ router.post('/signup', (req, res) => {
       if (wasCreated) {
         // This is the intended user action
         // Now, I want to automatially log in the user to their new acct
-        // TODO: Login the user
-        res.send('Successful Create User - Go look at DB')
+        passport.authenticate('local', {
+          successRedirect: '/profile',
+          successFlash: 'Yay, successful account creation!',
+          failureRedirect: '/auth/login',
+          failureFlash: 'Wat. This should never happen??'
+        })(req, res, next)
       }
       else {
         // The user already has an account (probably forgot)
@@ -65,7 +75,9 @@ router.post('/signup', (req, res) => {
 })
 
 router.get('/logout', (req, res) => {
-  res.send('GET /auth/logout')
+  req.logout() // Throw away session data of logged in user
+  req.flash('success', 'Goodbye - see you next time! 👋')
+  res.redirect('/')
 })
 
 // Export the router object so we can include it in other files
