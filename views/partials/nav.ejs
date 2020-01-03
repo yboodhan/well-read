@@ -1,6 +1,7 @@
 <nav class="teal lighten-3">
   <div class="nav-wrapper">
     <a href="/" class="brand-logo">BB</a>
+    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li><a href="/">Home</a></li>
       <% if (!user) { %>
@@ -17,3 +18,16 @@
     </ul>
   </div>
 </nav>
+
+<ul class="sidenav" id="mobile-demo">
+  <% if(!user) { %>
+    <li><a href="/auth/login">Log In</a></li>
+    <li><a href="/auth/signup">Sign Up</a></li>
+  <% } else { %>
+    <% if(user.admin) { %>
+      <li><a href="/profile/admin">Admin</a></li>
+    <% } %>
+    <li><a href="/profile">Profile</a></li>
+    <li><a href="/auth/logout">Logout</a></li>
+  <% } %>
+</ul>
