@@ -1,5 +1,10 @@
+// Read ENV Values
+require('dotenv').config()
+
 // Require passport and any passport strategies you wish to use
 let passport = require('passport')
+let FacebookStrategy = require('passport-facebook').Strategy
+let GithubStrategy = require('passport-github2').Strategy
 let LocalStrategy = require('passport-local').Strategy
 
 // Reference the models folder to access the db
@@ -23,7 +28,7 @@ passport.deserializeUser((id, cb) => {
   .catch(cb)
 })
 
-// Impolement Local Strategy (local database)
+// Implement Local Strategy (local database)
 passport.use(new LocalStrategy({
   usernameField: 'email',
   passwordField: 'password'
@@ -45,6 +50,17 @@ passport.use(new LocalStrategy({
   })
   .catch(cb)
 }))
+
+// Implement Github Strategy
+passport.use(new GithubStrategy({
+  clientID: process.env.GITHUB_CLIENT_ID,
+  clientSecret: process.env.GITHUB_SECRET,
+  callbackURL: process.env.BASE_URL + '/auth/callback/github'
+}, (accessToken, refreshToken, profile, cb) => {
+
+}))
+
+// Implement Facebook Strategy
 
 // Make sure you can include this file in other files
 module.exports = passport
