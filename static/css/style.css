@@ -13,3 +13,7 @@ main {
   right: auto !important;
   bottom: auto !important;
 }
+
+footer {
+  margin-top: 25px;
+}
