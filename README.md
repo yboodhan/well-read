@@ -44,3 +44,96 @@ This is some boilerplate code for projects. This is a bare bones node/express ap
 | GET | /profile/admin | profile.js | Admin User Profile |
 
 ## Steps To Use
+
+#### 1. Clone this repo, but with a different name
+
+```
+git clone <repo_link> <new_name>
+```
+
+#### 2. Install node modules from the package.json
+
+```
+npm install
+```
+
+(Or just `npm i` for short)
+
+#### 3. Customize with new project name
+
+Remove defaulty type stuff. Some areas to consider are:
+
+* Title in `layout.ejs`
+* Logo in NavBar
+* Description/Repo Link in `package.json`
+* Remove boilerplate's README content and replace with new project's readme
+
+#### 4. Create a new database for the new project
+
+```
+createdb <new_db_name>
+```
+
+#### 5. Update `config.json`
+
+* Change the database name
+* Other settings are likely okay, but check username, password, and dialect
+
+#### 6. Check the models and migrations for relevance to your project's needs
+
+For example, if your project doesn't require a birthdate field, then don't keep that in there. 
+
+> Delete from both the model and the migration.
+
+#### 7. Run the migrations
+
+```
+sequelize db:migrate
+```
+
+#### 8. Add a `.env` file with the following fields:
+
+* SESSION_SECRET: Can be any random string; usually a hash in production
+
+> Note: If using OAuth for Facebook and/or Github, switch to the directions on the `with-oauth` branch!!!
+
+#### 9. Run server; make sure it works
+
+```
+nodemon
+```
+
+or
+
+```
+node index.js
+```
+
+#### 10. Create a NEW repository on Github for the new project to live
+
+* Create a new repository on your personal Github account (via the GUI)
+* Delete the old remote to origin (`git remote remove origin`)
+* Add the new repo link as a remote location you can push to (`git remote add origin <new_link>`)
+* Add, Commit, and Push
+    * `git add -A`
+    * `git commit -m "Initial commit"`
+    * `git push origin master`
+
+
+
+> Note: Don't make commits from the new project to your auth boilerplate. Keep it PRISTINE for other future projects!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
