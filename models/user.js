@@ -24,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     username: DataTypes.STRING,
-    birthdate: DataTypes.DATE,
     password: {
       type: DataTypes.STRING,
       validate: {
@@ -42,12 +41,11 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    bio: DataTypes.TEXT,
     admin: DataTypes.BOOLEAN,
     facebookId: DataTypes.STRING,
     facebookToken: DataTypes.STRING,
-    githubId: DataTypes.STRING,
-    githubToken: DataTypes.STRING
+    // githubId: DataTypes.STRING,
+    // githubToken: DataTypes.STRING
   }, {
     hooks: {
       beforeCreate: pendingUser => {

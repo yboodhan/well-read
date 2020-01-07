@@ -82,15 +82,15 @@ router.get('/logout', (req, res) => {
 
 // GITHUB LOGIN ROUTES
 // This is the route that our app uses
-router.get('/github', passport.authenticate('github'))
+// router.get('/github', passport.authenticate('github'))
 
 // This is the route Github uses
-router.get('/callback/github', passport.authenticate('github', {
-  successRedirect: '/profile',
-  successFlash: 'Github login success',
-  failureRedirect: '/auth/login',
-  failureFlash: 'Github does not like it'
-}))
+// router.get('/callback/github', passport.authenticate('github', {
+//   successRedirect: '/profile',
+//   successFlash: 'Github login success',
+//   failureRedirect: '/auth/login',
+//   failureFlash: 'Github does not like it'
+// }))
 
 // FACEBOOK LOGIN ROUTES
 // The route our app calls
