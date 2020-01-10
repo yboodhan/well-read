@@ -1,10 +1,10 @@
 # Express Auth - With OAuth
 
-This is some boilerplate code for projects. This is a bare bones node/express app with local user authentication, Facebook OAuth, and Github OAuth. It exists so that *I don't have to start from scratch on my projects*.
+This is some boilerplate code for projects. This is a bare bones node/express app with local user authentication, Facebook OAuth, and Google OAuth. It exists so that *I don't have to start from scratch on my projects*.
 
 ## What it includes
 
-* OAuth for Facebook and Github
+* OAuth for Facebook and Google
 * Passport and passport-local for authentication
 * Sequelize user model / migration
 * Settings for PostgreSQL
@@ -31,8 +31,8 @@ This is some boilerplate code for projects. This is a bare bones node/express ap
 | birthday | Date | - |
 | facebookId | String | - |
 | facebookToken | String | - |
-| githubId | String | - |
-| githubToken | String | - |
+| googleId | String | - |
+| googleToken | String | - |
 
 ### Default Routes
 
@@ -103,12 +103,12 @@ sequelize db:migrate
 * BASE_URL
 * FACEBOOK_CLIENT_ID
 * FACEBOOK_SECRET
-* GITHUB_CLIENT_ID
-* GITHUB_SECRET
+* GOOGLE_CLIENT_ID
+* GOOGLE_SECRET
 
-> Note: Create NEW apps on Facebook and Github for new projects
+> Note: Create NEW apps on Facebook and Google for new projects
 
-> Note: If NOT using OAuth for Facebook and/or Github, switch to the directions on the `master` branch for local auth ONLY.
+> Note: If NOT using OAuth for Facebook and/or Google, switch to the directions on the `master` branch for local auth ONLY.
 
 #### 9. Run server; make sure it works
 

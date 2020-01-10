@@ -44,6 +44,8 @@ module.exports = (sequelize, DataTypes) => {
     admin: DataTypes.BOOLEAN,
     facebookId: DataTypes.STRING,
     facebookToken: DataTypes.STRING,
+    googleId: DataTypes.STRING,
+    googleToken: DataTypes.STRING
     // githubId: DataTypes.STRING,
     // githubToken: DataTypes.STRING
   }, {

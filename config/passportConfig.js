@@ -4,7 +4,7 @@ require('dotenv').config()
 // Require passport and any passport strategies you wish to use
 let passport = require('passport')
 let FacebookStrategy = require('passport-facebook').Strategy
-// let GithubStrategy = require('passport-github2').Strategy
+let GoogleStrategy = require('passport-google-oauth20').Strategy
 let LocalStrategy = require('passport-local').Strategy
 
 // Reference the models folder to access the db
@@ -62,6 +62,48 @@ passport.use(new LocalStrategy({
 //     where: { githubId: profile.id },
 //     defaults: {
 //       githubToken: accessToken,
+//       firstname: name[0],
+//       lastname: name[name.length - 1],
+//       username: profile.username,
+//       photoUrl: profile._json.avatar_url,
+//       bio: profile._json.bio || `Github user ${profile.username} works at ${profile._json.company} in ${profile._json.location}`
+//     }
+//   })
+//   .then(([user, wasCreated]) => {
+//     // Find out if user was already a github user. If so, they need a new token
+//     if (!wasCreated && user.githubId) {
+//       user.update({
+//         githubToken: accessToken
+//       })
+//       .then(updatedUser => {
+//         cb(null, updatedUser)
+//       })
+//       .catch(cb)
+//     }
+//     else {
+//       // Newly created user or, not a previous GH user
+//       return cb(null, user)
+//     }
+//   })
+//   .catch(cb)
+// }))
+
+// // Implement Google Strategy
+// passport.use(new GoogleStrategy({
+//   clientID: process.env.GOOGLE_CLIENT_ID,
+//   clientSecret: process.env.GOOGLE_SECRET,
+//   callbackURL: process.env.BASE_URL + '/auth/callback/google',
+//   profileFields: ['uid', 'email']
+// }, (accessToken, refreshToken, profile, cb) => {
+//   console.log('Google Login', profile)
+//   // Grab the Google primary email
+//   let googleEmail = profile.email
+//   //   let name = profile.displayName ? profile.displayName.split(' ') : profile.username
+//   // let uid = profile.uid
+//   db.user.findOrCreate({
+//     where: { googleId: profile.uid },
+//     defaults: {
+//       googleToken: accessToken,
 //       firstname: name[0],
 //       lastname: name[name.length - 1],
 //       username: profile.username,
