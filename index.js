@@ -36,6 +36,27 @@ app.use((req, res, next) => {
 app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile'))
 
+
+app.get('/bootstrap', (req, res) => {
+  res.render('jumbotron_albums', { 
+    layout: 'layouts/bootstrap-layout', 
+    albums: [
+      {
+        name: "Oprah's Book Club",
+        image: "/img/colorful_bookshelf.jpg"
+      },
+      {
+        name: "Hello Sunshine",
+        image: "/img/hellosunshine.jpg"
+      }
+    ]
+  })
+})
+
+app.get('/materialize', (req, res) => {
+  res.render('home', { layout: 'layouts/materialize-layout' })
+})
+
 // Add home or catch-all routes
 app.get('/', (req, res) => {
   res.render('home')

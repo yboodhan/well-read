@@ -1,0 +1,48 @@
+<main role="main" class="books-background">
+
+    <section class="jumbotron text-center books-foreground-jumbotron">
+        <div class="container">
+            <h1 class="jumbotron-heading">Book Clubs</h1>
+            <p class="lead text-muted">See your saved book clubs here!</p>
+            <p>
+                <a href="/" class="btn btn-primary">Back to WellRead</a>
+            </p>
+        </div>
+    </section>
+
+    <div class="books-foreground-content">
+        <div class="album py-5 bg-light">
+            <div class="container">
+                <div class="row">
+                    <% if (albums) { %>
+                        <% if (albums.length) { %>
+                            <% albums.forEach(a => { %>
+                                <div class="col-md-4">
+                                    <div clas="card mb-4 box-shadow">
+                                        <img class="card-img-top" height="200" src="<%= a.image %>" alt="album image">
+                                        <div class="card-body">
+                                            <p class="card-text"><%= a.name %></p>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div class="btn-group">
+                                                    <div class="btn">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                                                    </div>
+                                                    <div class="btn">
+                                                        <button type="button" class="btn btn-sm btn-outline-secondary">Add</button>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <small class="text-muted"><%= a.name %></small> 
+                                                </div>
+                                            </div> 
+                                        </div> 
+                                    </div>
+                                </div>
+                            <% }) %>
+                        <% } %> 
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -2,10 +2,13 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
 }
 
 main {
   text-align: center;
+  flex: 1 0 auto;
 }
 
 #toast-container {
@@ -16,4 +19,24 @@ main {
 
 footer {
   margin-top: 25px;
+}
+
+.books-background {
+  background-image: url('/img/Defocused-bookstore-background-shelves-with-books.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.books-background .books-foreground-jumbotron {
+  background-color: rgba(255,255,255,0.4);
+}
+
+.books-background .books-foreground-content {
+  margin: 0 auto;
+  padding: 1vh;
+  background-color: rgba(255,255,255,0.6);
 }
