@@ -1,7 +1,7 @@
 <nav class="bootstrap-grey">
   <div class="nav-wrapper">
     <a href="/" class="brand-logo">
-      <img src="/img/wellread-logo.png" style="height:60px;">
+      <img src="/img/logo.png" style="height:60px;">
     </a>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -10,8 +10,7 @@
           <div class="input-field">
             <input id="search" type="search" placeholder="Search Google Books" name="search" required>
             <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-            <!-- issue with material-icons 'close' interferring with user input text
-            <!--i class="material-icons">close</i-->
+            <i class="material-icons">close</i>
           </div>
         </form>
       </li>
@@ -20,16 +19,14 @@
         <li><a href="/auth/login">Login</a></li>
         <li><a href="/auth/signup">Signup</a></li>
         <% } else { %>
-          <!--li>Hi, <%= user.firstname %>!</li-->
+          <li>Hi, <%= user.firstname %>!</li>
           <% if (user.admin) { %>
             <li><a href="/profile/admin">Admin</a></li>
           <% } %>
           <% if (user.githubId) { %>
             <li><a href="/profile/repos">View Repos</a></li>
           <% } %>
-          <li><a href="/books/">Books</a></li> 
-          <li><a href="/books/search">Search</a></li>
-          <li><a href="/profile"><%= user.firstname %></a></li>
+          <li><a href="/profile">Profile</a></li>
           <li><a href="/auth/logout">Logout</a></li>
         <% } %>
     </ul>

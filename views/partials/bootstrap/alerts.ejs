@@ -1,0 +1,66 @@
+<% if (alerts) { %> 
+  <!--div id="toast-containers" aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;"-->
+  <div id="toast-containers" aria-live="polite" aria-atomic="true" style="position: relative;">
+    <!-- Position it -->
+    <div style="position: absolute; top: 0; right: 0; padding: 10px;">
+      <!-- Then put toasts within -->
+      <% if (alerts.error) { %>
+        <div class="toast error" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="mr-auto">Error</strong>
+          </div>
+          <div class="toast-body">
+            <%= alerts.error %> 
+          </div>
+        </div>
+      <% } %> 
+      <% if (alerts.success) { %>
+        <div class="toast success" role="alert" aria-live="assertive" aria-atomic="true">
+          <div class="toast-header">
+            <strong class="mr-auto">Success</strong>
+          </div>
+          <div class="toast-body">
+            <%= alerts.success %> 
+          </div>
+        </div>
+      <% } %> 
+    </div>
+  </div>
+<% } %> 
+
+<script>
+  let errors = '<%- alerts.error %>'
+  let successes = '<%- alerts.success %>'
+</script>
+
+<!--
+<script>
+  let errors = '<%- alerts.error %>'
+  let successes = '<%- alerts.success %>'
+
+  document.addEventListener('DOMContentLoaded', function() {
+    let toast = document.getElementById("toast-container")
+    let alertCls = ["alert"]
+
+    if (errors) {
+      cls = alertCls + ["error-alert", "red"]
+      toast.classList.add(...cls)
+      toast.innerHTML = errors
+      toast.fadeTo(2000, 500).slideUp(500, function() {
+        toast.slideUp(500)
+      })
+      toast.classList.remove(...cls)
+    }
+
+    if (successes) {
+      cls = alertCls + ["success-alert"]
+      toast.classList.add(...cls)
+      toast.innerHTML = successes
+      toast.fadeTo(2000, 500).slideUp(500, function() {
+        toast.slideUp(500)
+      })
+      toast.classList.remove(...cls)
+    }
+  })
+</script>
+-->
