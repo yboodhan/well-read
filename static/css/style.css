@@ -2,14 +2,199 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  width: 100%;
 }
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  font-size:1rem;
+  font-weight:400;
+  line-height:1.5;
+  color:#212529;
+}
+
+/* .app {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 5px;
+    /* font-family: sans-serif;
+    text-align: center;
+    line-height: 1;  */
+   /* -webkit-backdrop-filter: blur(10px); */
+    /* backdrop-filter: blur(100px);   */
+    /* max-width: 50%;
+    max-height: 50%;
+    padding: 20px 40px; */
+  /* } */
+/* } */
+
+nav .brand-logo {
+  padding: 0 5px;
+}
+
+/* for search bar */
+/* nav .form-inline .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+.mr-sm-2, .mx-sm-2 {
+  margin-right: .5rem !important;
+}
+.form-control {
+  display: block;
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-color:#fff;
+  background-clip: padding-box;
+  border: 1px solid  #ced4da;
+  border-radius: .25rem;
+  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+button, input {
+  overflow: visible;
+} */
 
 main {
   text-align: center;
+  flex: 1 0 auto;
+}
+
+body.homebody {
+  /* background-image:
+    linear-gradient(to right, rgba(235, 45, 118, 0.774), rgba(255, 255, 255, 0)), 
+    url('/img/colorful_bookshelf.jpg'),
+    linear-gradient(to right, rgba(30, 75, 115, 1), rgba(255, 255, 255, 0)); */
+  /* background-image: url('/img/Defocused-bookstore-background-shelves-with-books.jpeg'); */
+  /* background-repeat: repeat;
+  background-size: cover, 600px 200px, cover; */
+  /* Add the blur effect */
+  /* filter: blur(8px);
+  -webkit-filter: blur(8px); */
+  /* background-image: url('/img/colorful_bookshelf.jpg'); */
+  background-image: url('/img/Defocused-bookstore-background-shelves-with-books.jpeg');
+  /* background-repeat: repeat; */
+  background-repeat: repeat;
+  /* background-size: 600px 200px; */
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-image {
+  /* The image used */
+  background-image: url("/img/colorful_bookshelf.jpg");
+
+  /* Add the blur effect */
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Position text in the middle of the page/image */
+.bg-text {
+  background-color: rgb(29, 26, 27); /* Fallback color */
+  background-color: rgba(15, 14, 15, 0.4); /* Black w/opacity/see-through */
+  color: white;
+  font-weight: bold;
+  /* border: 3px solid #f1f1f1; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 20px;
+  text-align: center;
+}
+
+.gray-dark {
+  /* background-color: #343a40; */
+  background-color: #777777;
+}
+.footer-copyright,
+footer .container {
+  background-color: transparent;
+}
+.bootstrap-grey {
+  background-color: #f8f8f8;
+}
+.bootstrap-grey a,
+.bootstrap-grey label i {
+  color: #777777;
+}
+
+footer {
+  margin-top: 25px;
+}
+footer h5 {
+  color: #6c757d !important;
+  box-sizing: border-box;
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  /* font-size: 1rem; */
+  font-weight: 400;
+  line-height: 1.5;
+  /* color: #212529; */
+  /* text-align: left; */
+}
+
+.lead {
+  font-size: 1.25rem;
+  font-weight: 300;
 }
 
 #toast-container {
   left: 40% !important;
   right: auto !important;
   bottom: auto !important;
+}
+
+.toast {
+  width: 300px;
+  margin: 1vh 1vw;
+}
+
+.toast.error {
+  background-color: #e57373;
+}
+.toast.success {
+  background-color: #81c784;
+}
+
+.books-background {
+  background-image: url('/img/Defocused-bookstore-background-shelves-with-books.jpeg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.books-background .books-foreground-jumbotron {
+  background-color: rgba(255,255,255,0.4);
+}
+
+.books-background .books-foreground-content {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1vh;
+  background-color: rgba(255,255,255,0.6);
+}
+
+.page {
+  margin-bottom: 30px;
 }

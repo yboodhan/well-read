@@ -1,0 +1,93 @@
+<h1>Book Details</h1>
+
+<div class="row">
+    <div class="card col s4"> 
+        <h3><%= volInfo.title %></h3>
+        <h4><%= volInfo.subtitle %></h4>
+        <p>
+            <span>by </span>
+            <% if (volInfo.authors.length === 1) { %>
+                <span><%= volInfo.authors[0] %></span>
+            <% } else { %> 
+                <% volInfo.authors.forEach( (author, i) => { %>
+                    <% if (i === authors.length - 1) { %>
+                        <% author = `and ${author}` %> 
+                    <% } else if (volInfo.authors.length !== 2) { %>
+                        <% author += ',' %>
+                    <% } %>
+                    <span><%= `${author} ` %></span>
+                <% }) %>
+            <% } %> 
+        </p>
+       <div class="row">
+            <div class="col s12">
+                <img class="image-responsive" src="<%= volInfo.imageLinks.thumbnail %>&zoom=1">
+            </div>
+            <!--div class="col s6">
+                <p style="text-align:left;">
+                    <%= volInfo.description %> 
+                </p>
+            </div-->
+        </div>
+    </div>
+
+    <div class="card col s4"> 
+        <h3><%= volInfo.title %></h3>
+        <h4><%= volInfo.subtitle %></h4>
+        <p>
+            <span>by </span>
+            <% if (volInfo.authors.length === 1) { %>
+                <span><%= volInfo.authors[0] %></span>
+            <% } else { %> 
+                <% volInfo.authors.forEach( (author, i) => { %>
+                    <% if (i === authors.length - 1) { %>
+                        <% author = `and ${author}` %> 
+                    <% } else if (volInfo.authors.length !== 2) { %>
+                        <% author += ',' %>
+                    <% } %>
+                    <span><%= `${author} ` %></span>
+                <% }) %>
+            <% } %> 
+        </p>
+       <div class="row">
+            <div class="col s12">
+                <img class="image-responsive" src="<%= volInfo.imageLinks.thumbnail %>&zoom=1">
+            </div>
+            <!--div class="col s6">
+                <p style="text-align:left;">
+                    <%= volInfo.description %> 
+                </p>
+            </div-->
+        </div>
+    </div>
+    
+    <div class="card col s4"> 
+        <h3><%= volInfo.title %></h3>
+        <h4><%= volInfo.subtitle %></h4>
+        <p>
+            <span>by </span>
+            <% if (volInfo.authors.length === 1) { %>
+                <span><%= volInfo.authors[0] %></span>
+            <% } else { %> 
+                <% volInfo.authors.forEach( (author, i) => { %>
+                    <% if (i === authors.length - 1) { %>
+                        <% author = `and ${author}` %> 
+                    <% } else if (volInfo.authors.length !== 2) { %>
+                        <% author += ',' %>
+                    <% } %>
+                    <span><%= `${author} ` %></span>
+                <% }) %>
+            <% } %> 
+        </p>
+       <div class="row">
+            <div class="col s12">
+                <img class="image-responsive" src="<%= volInfo.imageLinks.thumbnail %>&zoom=1">
+            </div>
+            <!--div class="col s6">
+                <p style="text-align:left;">
+                    <%= volInfo.description %> 
+                </p>
+            </div-->
+        </div>
+    </div>
+</div>

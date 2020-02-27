@@ -1,21 +1,40 @@
 <h1>Login</h1>
 
+<div class="card-panel">
+  <div class="row">
+    <form method="POST" action="/auth/login" class="col s12">
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate" name="email">
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate" name="password">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <button class="btn waves-effect waves-light teal lighten-3" type="submit" name="action">Log Me In
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
+  </div>
+</div>
 <div class="row">
-  <form method="POST" action="/auth/login" class="col s12">
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate" name="email">
-        <label for="email">Email</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="password" type="password" class="validate" name="password">
-        <label for="password">Password</label>
-      </div>
-    </div>
-    <button class="btn waves-effect waves-light teal lighten-3" type="submit" name="action">Log Me In
-      <i class="material-icons right">send</i>
-    </button>
-  </form>
+  <div class="col s3"></div>
+  <div class="col s6">
+    <h3>Or...</h3>
+    <!--
+    <a href="/auth/github" class="btn waves-effect waves-light grey darken-2">
+      Github Login
+      <i class="fa fa-github" aria-hidden="true"></i>
+    </a>
+    -->
+    <a href="/auth/facebook" class="btn waves-effect waves-light indigo darken-2">
+      Facebook Login
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+    </a>
+  </div>
+  <div class="col s3"></div>
 </div>

@@ -1,0 +1,131 @@
+<%if (search) { %>
+    <h1>Search Results:</h1>
+    <h3><code><%= search %></code></h3>
+<% } else { %>
+    <h1>Search</h1>
+<% } %>
+<div class="row">
+    <form method="GET" action="/books/search">
+        <div class="input-field">
+            <div class="col s1">
+                <label class="label-icon" for="searchInput"><i class="material-icons">search</i></label>
+            </div>
+            <div class="col s11">
+                <input id="searchInput" type="search" placeholder="<%= search || 'Search Google Books' %>" name="search" required>
+            </div>
+            <!-- issue with material-icons 'close' interferring with user input text -->
+            <!--i class="material-icons">close</i-->
+        </div>
+    </form>
+</div>
+
+<% if (search) { %>
+
+  <!-- Modal Structure -->
+  <div id="modal11" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+    <% if (vols) { %>
+        <% if (vols.length > 0) { %>
+
+            <% let volInfo %> 
+
+            <div class="row">
+            <% for (let i = 0; i < Math.min(vols.length, 6); i++) { %> 
+                <% volInfo = vols[i].volumeInfo %>
+                <div class="card medium col s4">
+                    <p><b>
+                        <% if (volInfo.title) { %>
+                            <%= volInfo.title %> 
+                        <% } else { %>
+                            Book Title
+                        <% } %>
+                    </b></p>
+                    <!-- comment out subtitle in search result view >
+                    <p><i>
+                        <% if (volInfo.subtitle) { %>
+                            <%= volInfo.subtitle %>
+                        <% } %>
+                    </i></p>
+                    <!-->
+                    <p>
+                        <% if (volInfo.authors) { %>
+                            <%= volInfo.authors[0] %> 
+                        <% } else if (volInfo.author) { %>
+                            <%= volInfo.author  %> 
+                        <% } else { %>
+                            No Author(s)
+                        <% } %>
+                    </p>
+                    <div class="row">
+                        <div class="col s12">
+                            <% if (volInfo.imageLinks) { %>
+                                <% if (volInfo.imageLinks.thumbnail) { %>
+                                    <img class="image-responsive" src="<%= volInfo.imageLinks.thumbnail %>&zoom=1">
+                                <% } else { %>
+                                    <img class="image-responsive" src="/img/book-cover.jpg" />
+                                <% } %>
+                            <% } else { %>
+                                <img class="image-responsive" src="/img/book-cover-black.png" style="height:186px;" />
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="">
+                            <!-- Modal Trigger -->
+                            <a class="waves-effect waves-light btn modal-trigger" href="#modal<%= i %>">More</a>
+                        </div>
+                    </div>
+                <!--div class="row">
+                    <!--div class="col s6">
+                            <p style="text-align:left;">
+                                <%= volInfo.description %> 
+                            </p>
+                    </div-->
+                    <!--/div-->
+                </div>
+
+                <div id="modal<%= i %>" class="modal">
+                    <div class="modal-content">                            
+                        <% if (volInfo.title) { %>
+                            <h4><%= volInfo.title %></h4>
+                        <% } else { %>
+                            <h4>Book Title</h4>
+                        <% } %>
+                        <% if (volInfo.subtitle) { %>
+                            <p class="lead"><%= volInfo.subtitle %></p>
+                        <% } %>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Close</a>
+                    </div>
+                </div>
+
+            <% } %>
+        <% } else { %>
+            <p class="lead">Sorry! No search results were found for '<%= search %>'.</p>
+        <% } %>
+    <% } %>
+
+<% } %>
+<!-- SCRIPTS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+  </script>

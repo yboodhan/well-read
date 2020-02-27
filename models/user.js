@@ -24,7 +24,6 @@ module.exports = (sequelize, DataTypes) => {
       }
     },
     username: DataTypes.STRING,
-    birthdate: DataTypes.DATE,
     password: {
       type: DataTypes.STRING,
       validate: {
@@ -42,8 +41,13 @@ module.exports = (sequelize, DataTypes) => {
         }
       }
     },
-    bio: DataTypes.TEXT,
-    admin: DataTypes.BOOLEAN
+    admin: DataTypes.BOOLEAN,
+    facebookId: DataTypes.STRING,
+    facebookToken: DataTypes.STRING,
+    googleId: DataTypes.STRING,
+    googleToken: DataTypes.STRING
+    // githubId: DataTypes.STRING,
+    // githubToken: DataTypes.STRING
   }, {
     hooks: {
       beforeCreate: pendingUser => {
@@ -60,6 +64,9 @@ module.exports = (sequelize, DataTypes) => {
 
   user.associate = function(models) {
     // associations can be defined here
+    models.user.belongsToMany(models.books, {
+      through: 'users_books'
+    })
   }
 
   user.prototype.validPassword = function(typedInPassword) {

@@ -1,12 +1,13 @@
-# Express Auth
+# Express Auth - With OAuth
 
-This is some boilerplate code for projects. This is a bare bones node/express app with basic local user authentication. It exists so that *I don't have to start from scratch on my projects*.
+This is some boilerplate code for projects. This is a bare bones node/express app with local user authentication, Facebook OAuth, and Google OAuth. It exists so that *I don't have to start from scratch on my projects*.
 
 ## What it includes
 
+* OAuth for Facebook and Google
+* Passport and passport-local for authentication
 * Sequelize user model / migration
 * Settings for PostgreSQL
-* Passport and passport-local for authentication
 * Sessions to keep user logged in between pages
 * Flash messages for errors and successes
 * Passwords that are hashed with BCrypt
@@ -28,6 +29,10 @@ This is some boilerplate code for projects. This is a bare bones node/express ap
 | admin | Boolean | Defaults to false |
 | bio | Text | - |
 | birthday | Date | - |
+| facebookId | String | - |
+| facebookToken | String | - |
+| googleId | String | - |
+| googleToken | String | - |
 
 ### Default Routes
 
@@ -42,6 +47,7 @@ This is some boilerplate code for projects. This is a bare bones node/express ap
 | GET | /auth/logout | auth.js | Removes session info |
 | GET | /profile | profile.js | Regular User Profile |
 | GET | /profile/admin | profile.js | Admin User Profile |
+| GET | /profile/repos | profile.js | Grabs user's GH repos |
 
 ## Steps To Use
 
@@ -94,8 +100,15 @@ sequelize db:migrate
 #### 8. Add a `.env` file with the following fields:
 
 * SESSION_SECRET: Can be any random string; usually a hash in production
+* BASE_URL
+* FACEBOOK_CLIENT_ID
+* FACEBOOK_SECRET
+* GOOGLE_CLIENT_ID
+* GOOGLE_SECRET
 
-> Note: If using OAuth for Facebook and/or Github, switch to the directions on the `with-oauth` branch!!!
+> Note: Create NEW apps on Facebook and Google for new projects
+
+> Note: If NOT using OAuth for Facebook and/or Google, switch to the directions on the `master` branch for local auth ONLY.
 
 #### 9. Run server; make sure it works
 
@@ -122,18 +135,6 @@ node index.js
 
 
 > Note: Don't make commits from the new project to your auth boilerplate. Keep it PRISTINE for other future projects!
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
