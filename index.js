@@ -38,7 +38,7 @@ app.use('/auth', require('./controllers/auth'))
 app.use('/profile', require('./controllers/profile'))
 app.use('/books', require('./controllers/books'))
 
-app.get('/clubs', (req, res) => {
+app.get('/testalerts', (req, res) => {
   res.render('test/jumbotron_albums', { 
     layout: 'layouts/bootstrap-layout', 
     albums: [
@@ -54,6 +54,26 @@ app.get('/clubs', (req, res) => {
     alerts: {
       error: `You aren't logged in!`,
       success: `You signed in!`
+    }
+  })
+})
+
+app.get('/clubs', (req, res) => {
+  res.render('test/jumbotron_albums', { 
+    layout: 'layouts/bootstrap-layout', 
+    albums: [
+      {
+        name: "Oprah's Book Club",
+        image: "/img/colorful_bookshelf.jpg"
+      },
+      {
+        name: "Hello Sunshine",
+        image: "/img/hellosunshine.jpg"
+      }
+    ],
+    alerts: {
+      // error: `You aren't logged in!`,
+      // success: `You signed in!`
     }
   })
 })
