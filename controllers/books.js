@@ -4,7 +4,7 @@ let db = require('../models')
 
 // Variables
 const GOOGLE_BOOKS_URL = 'https://www.googleapis.com/books/v1/volumes'
-const GOOGLE_BOOKS_KEY = '***REMOVED***'
+const GOOGLE_BOOKS_KEY = process.env.GOOGLE_BOOKS_KEY
 
 // GET /books - books index
 router.get('/', function(req, res) {
@@ -60,7 +60,7 @@ router.get('/search', function(req, res) {
 
 // GET /books/test - test Google Books API call
 router.get('/test', (req, res) => {
-  let url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:the+girls+inauthor:emma+cline&langRestrict=en&key=***REMOVED***'
+  let url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:the+girls+inauthor:emma+cline&langRestrict=en&key=' + GOOGLE_BOOKS_KEY
   axios.get(url)
     .then(data => {
       console.log(data.data)
@@ -90,7 +90,7 @@ router.get('/test', (req, res) => {
 
 // GET /books/test/q/:query - test Google Books API call for given query
 router.get('/test/q/:query', (req, res) => {
-  let url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.query}&langRestrict=en&key=***REMOVED***`;
+  let url = `https://www.googleapis.com/books/v1/volumes?q=${req.params.query}&langRestrict=en&key=${GOOGLE_BOOKS_KEY}`;
   axios.get(url)
     .then(data => {
       console.log(data.data)
@@ -101,9 +101,9 @@ router.get('/test/q/:query', (req, res) => {
 
 // GET /books/:isbn - show book with given isbn
 router.get('/:isbn', function(req, res) {
-  // https://www.googleapis.com/books/v1/volumes?q=intitle:the+girls+inauthor:emma+cline&langRestrict=en&key=***REMOVED***
+  // example:  `https://www.googleapis.com/books/v1/volumes?q=intitle:the+girls+inauthor:emma+cline&langRestrict=en&key=${GOOGLE_BOOKS_KEY}`
   let gbUrl = 'https://www.googleapis.com/books/v1/volumes?q=' + req.params.isbn
-  let gbKey = '***REMOVED***';
+  let gbKey = process.env.GOOGLE_BOOKS_KEY;
   gbUrl += `&key=${gbKey}`;
   // Use request to call the API
   axios.get(gbUrl).then( function(apiResponse) {
@@ -129,7 +129,7 @@ router.get('/:isbn', function(req, res) {
 
 // GET /books/test/results - test Google Books API call
 router.get('/test/results', (req, res) => {
-  let url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:the+girls&langRestrict=en&key=***REMOVED***'
+  let url = 'https://www.googleapis.com/books/v1/volumes?q=intitle:the+girls&langRestrict=en&key=' + GOOGLE_BOOKS_KEY
   axios.get(url)
     .then(data => {
       console.log(data.data)
